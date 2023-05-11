@@ -1,0 +1,10 @@
+---
+- name:  Update the security patches for server
+  hosts: all
+  gather_fatcs: yes
+  tasks:
+    - name: Upgrade Security patches
+      yum:
+        name: '*'
+        state: latest
+        security: yes
