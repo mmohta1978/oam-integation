@@ -1,0 +1,14 @@
+---
+- name: Patch and reboot
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+        
+    - name: reboot the server
+      reboot:
+        pre_boot_delay: 120
+        msg: ' Attention All the server is getting rebooted in 2 minutes. Please save yoyr work and log off '
